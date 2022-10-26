@@ -100,19 +100,6 @@ function replaceNote() {
   chooseMode();
 }
 
-// function searchNote() {
-//   const searchElement = prompt(
-//     "Please enter the note, you want to check out:",
-//     ""
-//   );
-//   if (notes.includes(searchElement)) {
-//     console.log("Your note exist in array");
-//   } else {
-//     console.log("Your note do not exist in array");
-//   }
-//   chooseMode();
-// }
-
 function showNoteById() {
   const id = prompt("Please enter id, the element you qanted to find out:", "");
   function getObjectById(x) {
