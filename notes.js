@@ -4,7 +4,7 @@ const exampleNote = {
   author: "Nick",
   cratedAt: "2022",
   lastUpdatedAt: "today",
-  id: 1,
+  id: "1",
 };
 
 const author = "Nick";
@@ -33,7 +33,7 @@ function chooseMode() {
       replaceNote();
       break;
     case "Search":
-      searchNote();
+      showNoteById();
       break;
     case "SearchBy":
       searchByNote();
@@ -100,16 +100,26 @@ function replaceNote() {
   chooseMode();
 }
 
-function searchNote() {
-  const searchElement = prompt(
-    "Please enter the note, you want to check out:",
-    ""
-  );
-  if (notes.includes(searchElement)) {
-    console.log("Your note exist in array");
-  } else {
-    console.log("Your note do not exist in array");
+// function searchNote() {
+//   const searchElement = prompt(
+//     "Please enter the note, you want to check out:",
+//     ""
+//   );
+//   if (notes.includes(searchElement)) {
+//     console.log("Your note exist in array");
+//   } else {
+//     console.log("Your note do not exist in array");
+//   }
+//   chooseMode();
+// }
+
+function showNoteById() {
+  const id = prompt("Please enter id, the element you qanted to find out:", "");
+  function getObjectById(x) {
+    return x.id === id;
   }
+  const element = notes.find(getObjectById);
+  console.log(element);
   chooseMode();
 }
 
