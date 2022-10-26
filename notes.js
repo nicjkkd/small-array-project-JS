@@ -1,4 +1,16 @@
-const notes = ["Апельсин", "Слива", "Клубника", "Ананас", "Апельсин"];
+const exampleNote = {
+  title: "Orange",
+  discription: "Orange is fruit",
+  author: "Nick",
+  cratedAt: "2022",
+  lastUpdatedAt: "today",
+  id: 1,
+};
+
+const author = "Nick";
+
+const notes = [exampleNote];
+
 function chooseMode() {
   const userInput = prompt(
     "To create new note type 'Create' to show all type 'Show', to check out an element 'Search'",
@@ -44,16 +56,30 @@ function chooseMode() {
   }
 }
 
+function generateId() {
+  let id = "id" + new Date().getTime();
+  return id;
+}
+
 function exit() {}
 
 function createNote() {
-  const createInput = prompt("Please enter your note here:", " ");
-  notes.push(createInput);
+  let title = prompt("Please enter the title:", " ");
+  let discription = prompt("Please enter the discription:", " ");
+  const newnote = {
+    title: title,
+    discription: discription,
+    author: author,
+    cratedAt: new Date(),
+    lastUpdatedAt: new Date(),
+    id: generateId(),
+  };
+  notes.push(newnote);
   chooseMode();
 }
 
 function showNote() {
-  console.log(notes);
+  console.log(JSON.stringify(notes, null, 2));
   chooseMode();
 }
 
