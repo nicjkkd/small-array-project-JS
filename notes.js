@@ -7,7 +7,7 @@ const exampleNote = {
   id: "1",
 };
 
-const author = "Nick";
+let author = "Nick";
 
 const notes = [exampleNote];
 
@@ -49,6 +49,12 @@ function chooseMode() {
       break;
     case "Every":
       everyFunction();
+      break;
+    case "Change Author":
+      changeAuthor();
+      break;
+    case "Show Author":
+      showAuthor();
       break;
     default:
       console.log("Invalid Input, try again");
@@ -101,12 +107,23 @@ function replaceNote() {
 }
 
 function showNoteById() {
-  const id = prompt("Please enter id, the element you qanted to find out:", "");
+  const id = prompt("Please enter id, the element you wanted to find out:", "");
   function getObjectById(x) {
     return x.id === id;
   }
   const element = notes.find(getObjectById);
   console.log(element);
+  chooseMode();
+}
+
+function showAuthor(){
+  console.log(author);
+  chooseMode();
+}
+
+function changeAuthor(){
+  let newName = prompt("Please, enter a new nickname:", author);
+   author = newName ;
   chooseMode();
 }
 
